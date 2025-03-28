@@ -24,10 +24,20 @@ const basketSlice = createSlice({
         (item) => item.name !== payload.name
       );
     },
+    updateTotal: (state) => {
+      let amount = 0;
+      let total = 0;
+      state.products.forEach((item) => {
+        amount += item.amount;
+        total += item.price * item.amount;
+      });
+      state.amount = amount;
+      state.total = total;
+    },
   },
 });
 
-export const { increaseAmount, decreaseAmount, removeItem } =
+export const { increaseAmount, decreaseAmount, removeItem, updateTotal } =
   basketSlice.actions;
 
 export default basketSlice.reducer;
