@@ -15,9 +15,13 @@ const basketSlice = createSlice({
       const item = state.products.find((item) => item.name === payload.name);
       item.amount++;
     },
+    decreaseAmount: (state, { payload }) => {
+      const item = state.products.find((item) => item.name === payload.name);
+      item.amount--;
+    },
   },
 });
 
-export const { increaseAmount } = basketSlice.actions;
+export const { increaseAmount, decreaseAmount } = basketSlice.actions;
 
 export default basketSlice.reducer;
