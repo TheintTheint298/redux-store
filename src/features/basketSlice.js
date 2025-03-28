@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { storeData } from "../Data";
 
 const initialState = {
-  products: [],
+  products: storeData,
   amount: 0,
   total: 0,
 };
